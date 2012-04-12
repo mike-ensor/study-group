@@ -26,6 +26,3 @@ target/
 .class
 deploy.properties
 .com.apple.timemachine.supported
-
-
-images/
