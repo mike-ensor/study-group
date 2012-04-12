@@ -1,6 +1,9 @@
 package cc.ensor.study.web;
 
+import cc.ensor.study.service.DateService;
 import cc.ensor.study.web.model.HomeModel;
+import com.google.common.annotations.VisibleForTesting;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +15,10 @@ import javax.validation.Valid;
 @RequestMapping(value = "/home")
 public class HomeController {
 
+    @Autowired
+    @VisibleForTesting
+    DateService dateService;
+
     @ModelAttribute("model")
     private HomeModel defaultvalue() {
         HomeModel homeModel = new HomeModel();
@@ -21,6 +28,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showHome(@ModelAttribute("model") HomeModel model) {
+        System.out.println(dateService.getNow());
         return "home";
     }
 
