@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<%--<link href="${pageContext.request.contextPath}/site/styles/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen"/>--%>
+<%--&lt;%&ndash;<link href="${pageContext.request.contextPath}/site/styles/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="screen"/>&ndash;%&gt;--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/jquery/jquery-1.7.2.min.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap.min.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap-alert.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap-button.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap-dropdown.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap-modal.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap-tooltip.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap-transition.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap-scrollspy.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/site/scripts/libs/bootstrap/bootstrap-collapse.js"></script>--%>

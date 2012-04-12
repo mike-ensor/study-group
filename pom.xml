@@ -6,7 +6,7 @@
     <artifactId>study-group-parent</artifactId>
     <version>0.01-SNAPSHOT</version>
     <name>${project.artifactId}</name>
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
     <description>Base POM for Study Group Projects</description>
 
     <scm>

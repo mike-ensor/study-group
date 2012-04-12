@@ -1,5 +1,6 @@
 package cc.ensor.study.web;
 
+import cc.ensor.study.web.model.HomeModel;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class HomeControllerTest {
 
     @Test
     public void testShowHome() throws Exception {
-        String view = controller.showHome();
+        String view = controller.showHome(new HomeModel());
         assertThat(view, is("home"));
     }
 }

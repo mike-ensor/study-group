@@ -1,15 +1,55 @@
 package cc.ensor.study.web;
 
+import cc.ensor.study.web.model.HomeModel;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "/home")
 public class HomeController {
 
+    @ModelAttribute("model")
+    private HomeModel defaultvalue() {
+        HomeModel homeModel = new HomeModel();
+        homeModel.setName("Hey There");
+        return homeModel;
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String showHome() {
+    public String showHome(@ModelAttribute("model") HomeModel model) {
         return "home";
     }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String saveHome(@Valid @ModelAttribute("model") HomeModel model, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+        }
+        return "redirect:/home/";
+    }
+
+    @RequestMapping(value = "/abc/{reqName}", method = RequestMethod.GET)
+    public String showHomeWithParamInUrl(@ModelAttribute("model") HomeModel model, @PathVariable("reqName") String reqName) {
+        model.setName(reqName);
+        return "home";
+    }
+
+    @RequestMapping(value = "/def", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String showHomel(HttpServletRequest request) {
+        return "<h1>This is going to the body</h1>";
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String test(@RequestBody HomeModel model) {
+        return model.getName();
+    }
+
+
 }
