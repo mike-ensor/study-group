@@ -1,0 +1,198 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!--<mirrors>-->
+    <!--<mirror>-->
+    <!--<url>http://nlg00248:8080/nexus/content/groups/public</url>-->
+    <!--&lt;!&ndash;<url>http://10.210.192.163:8080/nexus/content/groups/public</url>&ndash;&gt;-->
+    <!--<mirrorOf>*,!cloudbees,!kiosk-release,!spring-repository</mirrorOf>-->
+    <!--</mirror>-->
+    <!--</mirrors>-->
+
+    <!--<localRepository>/Users/tkmavl5/.m2/repository</localRepository>-->
+
+    <activeProfiles>
+        <!--<activeProfile>spring-repository</activeProfile>-->
+        <!--<activeProfile>jrebel</activeProfile>-->
+        <activeProfile>tomcat</activeProfile>
+        <activeProfile>personal</activeProfile>
+        <!--<activeProfile>kohls-nexus</activeProfile>-->
+        <activeProfile>github</activeProfile>
+        <!--<activeProfile>local-nexus</activeProfile>-->
+    </activeProfiles>
+
+    <servers>
+        <server>
+            <id>site-docs</id>
+            <!-- 10.100.229.50 -->
+            <username>sitedocs</username>
+            <password>password11</password>
+        </server>
+        <server>
+            <id>local-nexus</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+        <server>
+            <id>archiva</id>
+            <username>development</username>
+            <password>summer07</password>
+        </server>
+        <server>
+            <!-- 10.210.192.166 -->
+            <id>releases</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+    </servers>
+
+    <profiles>
+        <profile>
+            <id>spring-repository</id>
+            <repositories>
+                <repository>
+                    <id>com.springsource.repository.bundles.release</id>
+                    <name>SpringSource Enterprise Bundle Repository -
+                        SpringSource Bundle Releases
+                    </name>
+                    <url>http://repository.springsource.com/maven/bundles/release</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>com.springsource.repository.bundles.external</id>
+                    <name>SpringSource Enterprise Bundle Repository -
+                        External Bundle Releases
+                    </name>
+                    <url>http://repository.springsource.com/maven/bundles/external</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>codehaus-release-repo</id>
+                    <name>Codehaus Release Repo</name>
+                    <url>http://repository.codehaus.org</url>
+                </repository>
+                <repository>
+                    <id>spring-milestone</id>
+                    <name>Spring Maven MILESTONE Repository</name>
+                    <url>http://maven.springframework.org/milestone</url>
+                </repository>
+            </repositories>
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>repository.springframework.maven.milestone</id>
+                    <name>Spring Framework Maven Milestone Repository</name>
+                    <url>http://maven.springframework.org/milestone</url>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>com.springsource.repository.bundles.milestone</id>
+                    <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Milestones</name>
+                    <url>http://repository.springsource.com/maven/bundles/milestone/</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>com.springsource.repository.bundles.snapshot</id>
+                    <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Snapshots</name>
+                    <url>http://repository.springsource.com/maven/bundles/snapshot/</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+        <profile>
+            <id>local-nexus</id>
+            <repositories>
+                <repository>
+                    <id>local-nexus</id>
+                    <url>http://localhost:8081/nexus/content/repositories/releases</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+
+        <profile>
+            <id>kohls-nexus</id>
+            <repositories>
+                <repository>
+                    <id>nexus</id>
+                    <!--<url>http://10.210.192.163:8080/nexus/content/groups/public</url>-->
+                    <url>http://nlg00248:8080/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+
+        <profile>
+            <id>kohls-properties</id>
+            <properties>
+                <java.14.home>/System/Library/Frameworks/JavaVM.framework/Versions/1.4.2/Home</java.14.home>
+                <java.15.home>/System/Library/Frameworks/JavaVM.framework/Versions/1.5/Home</java.15.home>
+                <java.16.home>/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home</java.16.home>
+            </properties>
+        </profile>
+
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>tomcat</id>
+            <properties>
+                <tomcat.manager.user>tomcat</tomcat.manager.user>
+                <tomcat.manager.password>s3cret</tomcat.manager.password>
+                <tomcat.installdir>${project.basedir}</tomcat.installdir>
+                <cargo.args>-noverify -javaagent:${env.REBEL_HOME}/jrebel.jar -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n</cargo.args>
+                <cargo.tomcat.installdir>${project.basdir}</cargo.tomcat.installdir>
+                <java.16.home>/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home</java.16.home>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>personal</id>
+            <properties>
+                <java.16.home>/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home</java.16.home>
+            </properties>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>https://central</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>cloudbees</id>
+                    <url>https://repository-dynacrongroup.forge.cloudbees.com/release/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+</settings>
