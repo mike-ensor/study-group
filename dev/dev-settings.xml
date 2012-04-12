@@ -6,7 +6,6 @@
     <!--<mirrors>-->
     <!--<mirror>-->
     <!--<url>http://nlg00248:8080/nexus/content/groups/public</url>-->
-    <!--&lt;!&ndash;<url>http://10.210.192.163:8080/nexus/content/groups/public</url>&ndash;&gt;-->
     <!--<mirrorOf>*,!cloudbees,!kiosk-release,!spring-repository</mirrorOf>-->
     <!--</mirror>-->
     <!--</mirrors>-->
