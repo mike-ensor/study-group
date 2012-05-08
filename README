@@ -1,0 +1,4 @@
+To run: mvn clean package jetty:run
+
+Navigate to: http://localhost:8080/home/
+
